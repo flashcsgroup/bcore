@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/service/")
 public class SampleController {
-    Long EntityID;
-
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public String getGreeting(@PathVariable String name) {
-        return "Hello " + name+ EntityID;
+        return "Hello " + name;
     }
 }
