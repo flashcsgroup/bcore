@@ -1,0 +1,3 @@
+http://www.javaworld.com/article/2076265/testing-debugging/junit-best-practices.html
+http://artofunittesting.com/unit-testing-review-guidelines/
+http://geosoft.no/development/unittesting.html

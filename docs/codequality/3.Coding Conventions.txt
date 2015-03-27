@@ -1,0 +1,3 @@
+Please read and follow java coding conventions!!!
+There is main convention by Oracle http://www.oracle.com/technetwork/java/codeconventions-150003.pdf
+Google conventions https://google-styleguide.googlecode.com/svn/trunk/javaguide.html
