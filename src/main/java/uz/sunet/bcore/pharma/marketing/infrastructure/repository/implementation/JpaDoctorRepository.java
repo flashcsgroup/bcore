@@ -11,11 +11,4 @@ import uz.sunet.bcore.pharma.marketing.domain.doctor.DoctorRepository;
 @DomainRepositoryImpl
 public class JpaDoctorRepository extends GenericJpaRepository<Doctor> implements DoctorRepository {
 
-    //TODO ASK ABOUT THIS IMPLEMENTATION
-    /*
-    public void save(Doctor doctor){}
-
-    public Doctor load(AggregateId doctorId){return null;}
-*/
-
 }
