@@ -2,12 +2,16 @@ package uz.sunet.bcore.pharma.sharedkernel.Address;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
+import javax.persistence.Embedded;
+
 /**
  * @author Jasurbek Khajiev
  */
 @ValueObject
 public class Address {
+    @Embedded
     private City city;
+    @Embedded
     private Region region;
     private String street;
     private String houseNumber;

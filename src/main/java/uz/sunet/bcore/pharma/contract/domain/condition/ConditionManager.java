@@ -8,7 +8,6 @@ import java.util.HashSet;
  * @author Jasurbek Khajiev
  */
 
-@javax.persistence.Entity
 public class ConditionManager  {
     //TODO test implemented logic of creation
 

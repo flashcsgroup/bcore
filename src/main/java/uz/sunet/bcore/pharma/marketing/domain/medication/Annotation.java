@@ -2,9 +2,12 @@ package uz.sunet.bcore.pharma.marketing.domain.medication;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
+import javax.persistence.Embeddable;
+
 /**
  * @author Jasurbek Khajiev
  */
+@Embeddable
 @ValueObject
 public class Annotation {
     private String description;

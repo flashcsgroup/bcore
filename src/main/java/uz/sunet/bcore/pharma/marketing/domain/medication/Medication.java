@@ -5,7 +5,7 @@ import uz.sunet.bcore.ddd.support.domain.BaseAggregateRoot;
 import uz.sunet.bcore.pharma.marketing.domain.doctor.Specialization;
 import uz.sunet.bcore.pharma.sharedkernel.Money;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -16,16 +16,24 @@ import java.util.List;
 @AggregateRoot
 public class Medication extends BaseAggregateRoot{
     private String name;
+    @Enumerated(EnumType.STRING)
     private MedicationCategory category;
+    @Embedded
     private MedicationGroup group;
+    @Embedded
     private Money price;
+    @Embedded
     private Point points;
+    @Enumerated(EnumType.STRING)
     private MedicationType medicationType;
+    @Embedded
     private Annotation annotation;
     private Date expirationDate;
     private Date productionDate;
+    @Transient
     private List<Promotion> promotion;
     //TO BE SEPARATED AS AGGREGATE OR SHARER KERNEL
+    @Transient
     private List<Specialization> usageArea;
 
     public String getName() {

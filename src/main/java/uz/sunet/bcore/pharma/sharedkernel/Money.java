@@ -18,7 +18,9 @@ package uz.sunet.bcore.pharma.sharedkernel;
 import org.fest.util.Objects;
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -31,11 +33,9 @@ import java.util.Currency;
 @Embeddable
 @ValueObject
 public class Money implements Serializable {
-
     public static final Currency DEFAULT_CURRENCY = Currency.getInstance("EUR");
-
     public static final Money ZERO = new Money(BigDecimal.ZERO);
-
+    @Column(scale = 3, precision=13)
     private BigDecimal denomination;
 
     private String currencyCode;

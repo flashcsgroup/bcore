@@ -3,7 +3,7 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 import uz.sunet.bcore.ddd.annotations.domain.AggregateRoot;
 import uz.sunet.bcore.ddd.support.domain.BaseAggregateRoot;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -13,15 +13,33 @@ import java.util.HashSet;
 @Entity
 @AggregateRoot
 public class Doctor extends BaseAggregateRoot{
-
+    @Embedded
     private FullName fullName;
+
+    @Embedded
     private Age age;
+    @ElementCollection
+    @CollectionTable(
+            name="doctor_specialization",
+            joinColumns=@JoinColumn(name="parent_id")
+    )
+    @Column(name="specialization")
     private HashSet<Specialization> specializations;
+
+    @Embedded
     private WorkPlace workPlace;
+
+    @Embedded
     private Position position;
+
+    @Embedded
     private Contacts contacts;
+
+    @Enumerated(EnumType.STRING)
     private Category category;
+    @Enumerated(EnumType.STRING)
     private Loyalty loyalty;
+
     private Date cooperationStartDate;
 
     public FullName getFullName() {

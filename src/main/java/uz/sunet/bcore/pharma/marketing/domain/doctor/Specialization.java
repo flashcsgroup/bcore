@@ -2,9 +2,13 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+
 /**
  * @author Jasurbek Khajiev
  */
+@Embeddable
 @ValueObject
 public class Specialization {
 
