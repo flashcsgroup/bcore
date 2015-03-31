@@ -2,14 +2,20 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
+import javax.persistence.Embeddable;
+
 /**
  * @author Jasurbek Khajiev
  */
+@Embeddable
 @ValueObject
 public class FullName {
     private String name;
     private String lastName;
     private String middleName;
+
+    public FullName() {
+    }
 
     public FullName(String name, String lastName, String middleName) {
         this.name = name;
@@ -21,12 +27,24 @@ public class FullName {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getLastName() {
         return lastName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getMiddleName() {
         return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     @Override

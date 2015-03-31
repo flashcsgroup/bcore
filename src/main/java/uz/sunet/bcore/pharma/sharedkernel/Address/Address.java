@@ -2,11 +2,13 @@ package uz.sunet.bcore.pharma.sharedkernel.Address;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
 /**
  * @author Jasurbek Khajiev
  */
+@Embeddable
 @ValueObject
 public class Address {
     @Embedded
@@ -16,6 +18,9 @@ public class Address {
     private String street;
     private String houseNumber;
     private String zipCode;
+
+    public Address() {
+    }
 
     public Address(City city, Region region, String street, String houseNumber, String zipCode) {
         this.city = city;

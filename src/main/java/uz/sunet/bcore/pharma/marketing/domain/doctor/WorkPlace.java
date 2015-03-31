@@ -3,11 +3,13 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 import uz.sunet.bcore.pharma.sharedkernel.Address.Address;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
 /**
  * @author Jasurbek Khajiev
  */
+@Embeddable
 @ValueObject
 public class WorkPlace {
 
@@ -16,6 +18,9 @@ public class WorkPlace {
     private Address address;
     @Embedded
     private Contacts contacts;
+
+    public WorkPlace() {
+    }
 
     public WorkPlace(String nameOfPlace, Address address, Contacts contacts) {
         this.nameOfPlace = nameOfPlace;

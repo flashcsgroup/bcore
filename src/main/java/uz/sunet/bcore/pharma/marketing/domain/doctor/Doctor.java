@@ -1,5 +1,9 @@
 package uz.sunet.bcore.pharma.marketing.domain.doctor;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import uz.sunet.bcore.ddd.annotations.domain.AggregateRoot;
 import uz.sunet.bcore.ddd.support.domain.BaseAggregateRoot;
 
@@ -12,18 +16,14 @@ import java.util.HashSet;
  */
 @Entity
 @AggregateRoot
-public class Doctor extends BaseAggregateRoot{
+public class Doctor extends BaseAggregateRoot {
     @Embedded
     private FullName fullName;
 
     @Embedded
     private Age age;
-    @ElementCollection
-    @CollectionTable(
-            name="doctor_specialization",
-            joinColumns=@JoinColumn(name="parent_id")
-    )
-    @Column(name="specialization")
+
+    @Transient
     private HashSet<Specialization> specializations;
 
     @Embedded
@@ -116,30 +116,25 @@ public class Doctor extends BaseAggregateRoot{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Doctor doctor = (Doctor) o;
-
-        if (!age.equals(doctor.age)) return false;
-        if (!fullName.equals(doctor.fullName)) return false;
-        if (!workPlace.equals(doctor.workPlace)) return false;
-
-        return true;
+        if (!(o instanceof Doctor)) {
+            return false;
+        }
+        final Doctor that = (Doctor) o;
+        return new EqualsBuilder().append(age, that.age).append(fullName, that.fullName).append(workPlace, that.workPlace).isEquals();
     }
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + fullName.hashCode();
-        result = 31 * result + age.hashCode();
-        result = 31 * result + workPlace.hashCode();
-        return result;
+        return new HashCodeBuilder(17, 31).append(age).append(fullName).append(workPlace).toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).append("age", age).append("fullName", fullName).append("workPlace", workPlace).toString();
     }
 
     public DoctorData generateSnapshot() {
-        return new DoctorData(getAggregateId(),fullName, specializations,loyalty,category);
+        return new DoctorData(getAggregateId(), fullName, specializations, loyalty, category);
     }
 
 }

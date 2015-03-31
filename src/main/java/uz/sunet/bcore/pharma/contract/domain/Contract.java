@@ -9,6 +9,7 @@ import uz.sunet.bcore.pharma.contract.domain.condition.ConditionAdditionPolicyIm
 import uz.sunet.bcore.pharma.contract.domain.condition.ConditionItem;
 import uz.sunet.bcore.pharma.contract.domain.condition.ConditionType;
 
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +24,7 @@ public class Contract extends BaseAggregateRoot {
     private AggregateId representativeId;
     private AggregateId doctorId;
     private HashSet<Condition> conditions = new HashSet<>();
+    @Transient
     private ConditionAdditionPolicyImplementation policyImplementation;
 
 
