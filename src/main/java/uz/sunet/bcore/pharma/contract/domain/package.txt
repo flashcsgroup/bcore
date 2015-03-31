@@ -1,0 +1,1 @@
+This package contains domain models for marketing bounded context
