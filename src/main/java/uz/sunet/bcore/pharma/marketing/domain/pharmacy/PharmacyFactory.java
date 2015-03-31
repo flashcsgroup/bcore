@@ -27,7 +27,7 @@ public class PharmacyFactory {
         pharmacy.setPharmacyStaff(pharmacyStaffSet);
         pharmacy.setPotential(potential);
         pharmacy.setPharmacyAddress(pharmacyAddress);
-
+//Return
     return pharmacy;
     }
     public Contacts createContacts(List<String> phoneNumber,String email,String fax) {

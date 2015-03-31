@@ -2,10 +2,11 @@ package uz.sunet.bcore.pharma.marketing.domain.pharmacy;
 
 import uz.sunet.bcore.ddd.annotations.domain.AggregateRoot;
 import uz.sunet.bcore.ddd.support.domain.BaseAggregateRoot;
+import uz.sunet.bcore.pharma.marketing.domain.doctor.DoctorData;
 import uz.sunet.bcore.pharma.marketing.domain.sharedVO.Contacts;
 import uz.sunet.bcore.pharma.sharedkernel.Address.Address;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -15,12 +16,24 @@ import java.util.HashSet;
 @Entity
 @AggregateRoot
 public class Pharmacy extends BaseAggregateRoot{
+
+    @Embedded
     private String nameOfPharmacy;
+    @Embedded
     private Date pharmacyCooperationDate;
+    @Embedded
     private Double prepaymentPercentage;
+    @Embedded
     private Contacts pharmacyContacts;
+    @CollectionTable(
+            name="pharmacy_staff",
+            joinColumns=@JoinColumn(name="parent_id")
+    )
+    @Column(name="pharmacyStaff")
     private HashSet<PharmacyStaff> pharmacyStaff;
+    @Enumerated(EnumType.STRING)
     private Potential potential;
+    @Embedded
     private Address pharmacyAddress;
 
     public String getNameOfPharmacy() {
@@ -100,6 +113,7 @@ public class Pharmacy extends BaseAggregateRoot{
         result = 31 * result + pharmacyAddress.hashCode();
         return result;
     }
-
-
+    public PharmacyData generateSnapshot() {
+        return new PharmacyData(getAggregateId(),nameOfPharmacy,pharmacyCooperationDate,potential);
+    }
 }
