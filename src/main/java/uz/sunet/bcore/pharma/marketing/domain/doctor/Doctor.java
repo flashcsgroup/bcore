@@ -9,7 +9,7 @@ import uz.sunet.bcore.ddd.support.domain.BaseAggregateRoot;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Jasurbek Khajiev
@@ -24,7 +24,7 @@ public class Doctor extends BaseAggregateRoot {
     private Age age;
 
     @Transient
-    private HashSet<Specialization> specializations;
+    private Set<Specialization> specializations;
 
     @Embedded
     private WorkPlace workPlace;
@@ -58,11 +58,11 @@ public class Doctor extends BaseAggregateRoot {
         this.age = age;
     }
 
-    public HashSet<Specialization> getSpecializations() {
+    public Set<Specialization> getSpecializations() {
         return specializations;
     }
 
-    public void setSpecializations(HashSet<Specialization> specializations) {
+    public void setSpecializations(Set<Specialization> specializations) {
         this.specializations = specializations;
     }
 

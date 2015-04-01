@@ -1,17 +1,19 @@
 package uz.sunet.bcore.pharma.marketing.domain.pharmacy;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
-import uz.sunet.bcore.pharma.marketing.domain.sharedVO.Contacts;
-import uz.sunet.bcore.pharma.marketing.domain.sharedVO.FullName;
+import uz.sunet.bcore.pharma.marketing.domain.doctor.FullName;
 
-import java.util.HashSet;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 
 /**
  * @author Jonik Negmatov
  */
+@Embeddable
 @ValueObject
 public class PharmacyStaff {
     private String position;
+    @Embedded
     private FullName pharmacyStuffName;
     private String phoneNumber;
 
@@ -19,6 +21,9 @@ public class PharmacyStaff {
         this.position = position;
         this.pharmacyStuffName = pharmacyStuffName;
         this.phoneNumber = phoneNumber;
+    }
+
+    public PharmacyStaff() {
     }
 
     public String getPosition() {

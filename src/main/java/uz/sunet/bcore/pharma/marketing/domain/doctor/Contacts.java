@@ -2,6 +2,8 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import java.util.List;
 
 /**
@@ -10,6 +12,7 @@ import java.util.List;
 @Embeddable
 @ValueObject
 public class Contacts {
+    @Transient//TODO:
     private List<String> phoneNumber;
     private String email;
     private String fax;

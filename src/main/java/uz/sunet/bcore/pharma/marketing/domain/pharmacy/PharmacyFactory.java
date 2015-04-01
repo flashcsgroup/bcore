@@ -1,7 +1,7 @@
 package uz.sunet.bcore.pharma.marketing.domain.pharmacy;
 
 import uz.sunet.bcore.ddd.annotations.domain.DomainFactory;
-import uz.sunet.bcore.pharma.marketing.domain.sharedVO.Contacts;
+import uz.sunet.bcore.pharma.marketing.domain.doctor.Contacts;
 import uz.sunet.bcore.pharma.sharedkernel.Address.Address;
 
 import java.util.Date;

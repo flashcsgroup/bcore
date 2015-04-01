@@ -14,15 +14,15 @@ import java.util.Set;
 @DomainFactory
 public class DoctorFactory {
 
-    public Doctor create(String name,String lastName,String middleName, Date dob,List<Specialization> specializations, Contacts contacts, String position, String departmentName,Category category, Loyalty loyalty,String nameOfPlace, Address address, String workPlacePhone, String workPlaceFax){
+    public Doctor create(String name, String lastName, String middleName, Date dob, List<Specialization> specializations, Contacts contacts, String position, String departmentName, Category category, Loyalty loyalty, String nameOfPlace, Address address, String workPlacePhone, String workPlaceFax) {
         Doctor doctor = new Doctor();
-        doctor.setFullName(createFullName(name,lastName,middleName));
+        doctor.setFullName(createFullName(name, lastName, middleName));
         doctor.setAge(new Age(dob));
         Set<Specialization> specializationsSet = new HashSet<>();
         specializationsSet.addAll(specializations);
         doctor.setSpecializations(specializationsSet);
-        doctor.setWorkPlace(createWorkPlace(nameOfPlace,address,workPlacePhone, workPlaceFax));
-        doctor.setPosition(createPosition(position,departmentName));
+        doctor.setWorkPlace(createWorkPlace(nameOfPlace, address, contacts));
+        doctor.setPosition(createPosition(position, departmentName));
         doctor.setContacts(contacts);
         doctor.setCategory(category);
         doctor.setLoyalty(loyalty);
@@ -30,20 +30,20 @@ public class DoctorFactory {
         return doctor;
     }
 
-    private FullName createFullName(String name, String lastName, String middleName){
-        return new FullName(name,lastName,middleName);
+    private FullName createFullName(String name, String lastName, String middleName) {
+        return new FullName(name, lastName, middleName);
     }
 
-    public Contacts createContacts(List<String> phoneNumber,String email,String fax){
-        return new Contacts(phoneNumber,email, fax);
+    public Contacts createContacts(List<String> phoneNumber, String email, String fax) {
+        return new Contacts(phoneNumber, email, fax);
     }
 
-    private Position createPosition(String positionName, String departmentName){
-        return new Position(positionName,departmentName);
+    private Position createPosition(String positionName, String departmentName) {
+        return new Position(positionName, departmentName);
     }
 
-    private WorkPlace createWorkPlace(String nameOfPlace,Address address,String phoneNumber, String fax){
-        return new WorkPlace(nameOfPlace,address,phoneNumber,fax);
+    private WorkPlace createWorkPlace(String nameOfPlace, Address address, Contacts contacts) {
+        return new WorkPlace(nameOfPlace, address, contacts);
     }
 
 }

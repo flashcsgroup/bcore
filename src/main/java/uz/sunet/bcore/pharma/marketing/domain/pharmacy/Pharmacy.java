@@ -2,13 +2,12 @@ package uz.sunet.bcore.pharma.marketing.domain.pharmacy;
 
 import uz.sunet.bcore.ddd.annotations.domain.AggregateRoot;
 import uz.sunet.bcore.ddd.support.domain.BaseAggregateRoot;
-import uz.sunet.bcore.pharma.marketing.domain.doctor.DoctorData;
-import uz.sunet.bcore.pharma.marketing.domain.sharedVO.Contacts;
+import uz.sunet.bcore.pharma.marketing.domain.doctor.Contacts;
 import uz.sunet.bcore.pharma.sharedkernel.Address.Address;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Jonik Negmatov
@@ -17,11 +16,11 @@ import java.util.HashSet;
 @AggregateRoot
 public class Pharmacy extends BaseAggregateRoot{
 
-    @Embedded
+
     private String nameOfPharmacy;
-    @Embedded
+
     private Date pharmacyCooperationDate;
-    @Embedded
+
     private Double prepaymentPercentage;
     @Embedded
     private Contacts pharmacyContacts;
@@ -30,7 +29,7 @@ public class Pharmacy extends BaseAggregateRoot{
             joinColumns=@JoinColumn(name="parent_id")
     )
     @Column(name="pharmacyStaff")
-    private HashSet<PharmacyStaff> pharmacyStaff;
+    private Set<PharmacyStaff> pharmacyStaff;
     @Enumerated(EnumType.STRING)
     private Potential potential;
     @Embedded
@@ -68,11 +67,11 @@ public class Pharmacy extends BaseAggregateRoot{
         this.pharmacyContacts = pharmacyContacts;
     }
 
-    public HashSet<PharmacyStaff> getPharmacyStaff() {
+    public Set<PharmacyStaff> getPharmacyStaff() {
         return pharmacyStaff;
     }
 
-    public void setPharmacyStaff(HashSet<PharmacyStaff> pharmacyStaff) {
+    public void setPharmacyStaff(Set<PharmacyStaff> pharmacyStaff) {
         this.pharmacyStaff = pharmacyStaff;
     }
 
