@@ -12,20 +12,20 @@ import javax.persistence.Embedded;
 @Embeddable
 @ValueObject
 public class WorkPlace {
+
     private String nameOfPlace;
     @Embedded
     private Address address;
-    private String phoneNumber;
+    @Embedded
+    private Contacts contacts;
 
-    private String email;
+    public WorkPlace() {
+    }
 
-    private String fax;
-
-    public WorkPlace(String nameOfPlace, Address address, String phoneNumber, String fax) {
+    public WorkPlace(String nameOfPlace, Address address, Contacts contacts) {
         this.nameOfPlace = nameOfPlace;
         this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.fax = fax;
+        this.contacts = contacts;
     }
 
     public String getNameOfPlace() {
@@ -36,12 +36,8 @@ public class WorkPlace {
         return address;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getFax() {
-        return fax;
+    public Contacts getContacts() {
+        return contacts;
     }
 
     @Override
@@ -63,23 +59,4 @@ public class WorkPlace {
         result = 31 * result + address.hashCode();
         return result;
     }
-
-    //CREATED FOR JPA TO WORK PROPERLY
-
-    public void setNameOfPlace(String nameOfPlace) {
-        this.nameOfPlace = nameOfPlace;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
-    }
-
 }

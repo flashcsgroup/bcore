@@ -19,6 +19,9 @@ public class Address {
     private String houseNumber;
     private String zipCode;
 
+    public Address() {
+    }
+
     public Address(City city, Region region, String street, String houseNumber, String zipCode) {
         this.city = city;
         this.region = region;

@@ -21,34 +21,35 @@ import javax.persistence.*;
 
 /**
  * Client's snapshot
- * 
+ *
  * @author Slawek
  */
 @ValueObject
 @Embeddable
 public class ClientData {
-	
-	@Embedded
-	@AttributeOverrides({
-			  @AttributeOverride(name = "aggregateId", column = @Column(name = "clientId", nullable = false))})
-	private AggregateId aggregateId;
-	
-	private String name;
 
-	@SuppressWarnings("unused")
-	private ClientData(){}
-	
-	public ClientData(AggregateId aggregateId, String name) {
-		this.aggregateId = aggregateId;
-		this.name = name;
-	}
-	
-	public AggregateId getAggregateId() {
-		return aggregateId;
-	}
-	
-	public String getName() {
-		return name;
-	}
+    @SuppressWarnings("unused")
+    private ClientData() {
+    }
+
+    public ClientData(AggregateId aggregateId, String name) {
+        this.aggregateId = aggregateId;
+        this.name = name;
+    }
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "aggregateId", column = @Column(name = "clientId", nullable = false))})
+    private AggregateId aggregateId;
+
+    private String name;
+
+    public AggregateId getAggregateId() {
+        return aggregateId;
+    }
+
+    public String getName() {
+        return name;
+    }
 
 }

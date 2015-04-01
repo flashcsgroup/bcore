@@ -3,7 +3,6 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 
 /**
  * @author Jasurbek Khajiev
@@ -11,30 +10,41 @@ import javax.persistence.Embedded;
 @Embeddable
 @ValueObject
 public class FullName {
-
-    @Embedded
-    private String firstName;
-    @Embedded
+    private String name;
     private String lastName;
-    @Embedded
     private String middleName;
 
+    public FullName() {
+    }
+
     public FullName(String name, String lastName, String middleName) {
-        this.firstName = name;
+        this.name = name;
         this.lastName = lastName;
         this.middleName = middleName;
     }
 
     public String getName() {
-        return firstName;
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLastName() {
         return lastName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getMiddleName() {
         return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     @Override
@@ -46,29 +56,16 @@ public class FullName {
 
         if (!lastName.equals(fullName.lastName)) return false;
         if (!middleName.equals(fullName.middleName)) return false;
-        if (!firstName.equals(fullName.firstName)) return false;
+        if (!name.equals(fullName.name)) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = firstName.hashCode();
+        int result = name.hashCode();
         result = 31 * result + lastName.hashCode();
         result = 31 * result + middleName.hashCode();
         return result;
-    }
-
-    //SETTERS CREATED FOR JPA WORKING PROPERLY
-    public void setName(String name) {
-        this.firstName = name;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
     }
 }
