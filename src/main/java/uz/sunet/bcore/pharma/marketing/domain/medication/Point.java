@@ -2,7 +2,6 @@ package uz.sunet.bcore.pharma.marketing.domain.medication;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 import java.math.BigDecimal;
@@ -20,6 +19,9 @@ public class Point {
 
     public Point(BigDecimal denomination) {
         this.denomination = denomination;
+    }
+
+    public Point() {
     }
 
 //    public static Point getZero() {

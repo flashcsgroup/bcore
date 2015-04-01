@@ -13,6 +13,7 @@ import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Jasurbek Khajiev
@@ -21,9 +22,12 @@ import java.util.List;
 @AggregateRoot
 public class Contract extends BaseAggregateRoot {
 //PROBABLY I WILL NEED TO CHANGE DATA TYPE OF FOREIGN KEYS
+    @Transient//todo
     private AggregateId representativeId;
+    @Transient//todo
     private AggregateId doctorId;
-    private HashSet<Condition> conditions = new HashSet<>();
+    @Transient//todo
+    private Set<Condition> conditions = new HashSet<>();
     @Transient
     private ConditionAdditionPolicyImplementation policyImplementation;
 
@@ -56,7 +60,7 @@ public class Contract extends BaseAggregateRoot {
         this.doctorId = doctorId;
     }
 
-    public HashSet<Condition> getConditions() {
+    public Set<Condition> getConditions() {
         return conditions;
     }
 

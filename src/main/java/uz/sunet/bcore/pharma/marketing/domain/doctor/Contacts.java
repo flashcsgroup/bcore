@@ -12,7 +12,7 @@ import java.util.List;
 @Embeddable
 @ValueObject
 public class Contacts {
-    @Transient//TODO:
+    @Transient
     private List<String> phoneNumber;
     private String email;
     private String fax;

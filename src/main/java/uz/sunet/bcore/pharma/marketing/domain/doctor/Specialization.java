@@ -17,6 +17,9 @@ public class Specialization {
         this.specializationName = specializationName;
     }
 
+    public Specialization() {
+    }
+
     public String getSpecializationName() {
         return specializationName;
     }

@@ -3,6 +3,7 @@ package uz.sunet.bcore.pharma.sharedkernel.Address;
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 
 /**
  * @author Jasurbek Khajiev
@@ -10,7 +11,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 @ValueObject
 public class City {
-
+    @Transient//todo
     private String name;
     private Integer population;
 

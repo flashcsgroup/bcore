@@ -5,6 +5,7 @@ import uz.sunet.bcore.ddd.annotations.domain.DomainPolicyImpl;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Jasurbek Khajiev
@@ -14,7 +15,7 @@ public class ConditionAdditionPolicyImplementation implements ConditionAdditionP
 
     //TODO IMPLEMENT AMOUNT CHECKING POLICY, IF THE MEDICATION AMOUNT EXCEEDS MINIMUM LIMIT OF SPECIAL POINT CONDITIONS THEN CHANGE TO SPECIAL POINTS
 
-    public boolean canAdd(Condition condition, HashSet<Condition> existingConditions) {
+    public boolean canAdd(Condition condition, Set<Condition> existingConditions) {
         boolean canAdd = true;
         if (existingConditions.isEmpty()) return canAdd;
         for (Condition existingCondition : existingConditions) {

@@ -28,8 +28,8 @@ import javax.persistence.*;
 @Embeddable
 public class ClientData {
 
-    @SuppressWarnings("unused")
-    private ClientData() {
+
+    public ClientData() {
     }
 
     public ClientData(AggregateId aggregateId, String name) {

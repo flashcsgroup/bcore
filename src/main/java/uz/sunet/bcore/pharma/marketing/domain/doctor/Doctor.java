@@ -32,7 +32,7 @@ public class Doctor extends BaseAggregateRoot {
     @Embedded
     private Position position;
 
-    @Embedded
+    @Transient//todo its duplicated with WorkPlace embedded contacts should be unique mapping
     private Contacts contacts;
 
     @Enumerated(EnumType.STRING)

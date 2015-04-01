@@ -24,11 +24,7 @@ public class Pharmacy extends BaseAggregateRoot{
     private Double prepaymentPercentage;
     @Embedded
     private Contacts pharmacyContacts;
-    @CollectionTable(
-            name="pharmacy_staff",
-            joinColumns=@JoinColumn(name="parent_id")
-    )
-    @Column(name="pharmacyStaff")
+    @Transient //TODO
     private Set<PharmacyStaff> pharmacyStaff;
     @Enumerated(EnumType.STRING)
     private Potential potential;

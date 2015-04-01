@@ -2,9 +2,8 @@ package uz.sunet.bcore.pharma.sharedkernel.Address;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import java.util.Set;
 
 /**
@@ -13,9 +12,9 @@ import java.util.Set;
 @Embeddable
 @ValueObject
 public class Region {
-
+    @Transient
     private String name;
-
+    @Transient//TODO
     private Set<City> city;
 
     public Region() {
@@ -38,8 +37,7 @@ public class Region {
         this.city = city;
     }
 
-    @ElementCollection
-    @CollectionTable
+
     public Set<City> getCity() {
         return city;
     }

@@ -3,6 +3,7 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 
 /**
  * @author Jasurbek Khajiev
@@ -10,6 +11,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 @ValueObject
 public class FullName {
+    @Transient//todo
     private String name;
     private String lastName;
     private String middleName;

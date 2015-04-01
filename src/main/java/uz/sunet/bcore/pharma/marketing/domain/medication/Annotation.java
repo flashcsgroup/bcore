@@ -18,11 +18,22 @@ public class Annotation {
         this.consist = consist;
     }
 
+    public Annotation() {
+    }
+
     public String getDescription() {
         return description;
     }
 
     public String getConsist() {
         return consist;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setConsist(String consist) {
+        this.consist = consist;
     }
 }
