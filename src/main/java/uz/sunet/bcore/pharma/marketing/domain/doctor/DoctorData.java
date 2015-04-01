@@ -3,7 +3,7 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 import uz.sunet.bcore.pharma.canonicalmodel.publishedlanguage.AggregateId;
 
-import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Jasurbek Khajiev
@@ -13,11 +13,11 @@ public class DoctorData {
 
     private AggregateId doctorId;
     private FullName fullName;
-    private HashSet<Specialization> specializations;
+    private Set<Specialization> specializations;
     private Loyalty loyalty;
     private Category category;
 
-    public DoctorData(AggregateId doctorId, FullName fullName, HashSet<Specialization> specializations, Loyalty loyalty, Category category) {
+    public DoctorData(AggregateId doctorId, FullName fullName, Set<Specialization> specializations, Loyalty loyalty, Category category) {
         this.doctorId = doctorId;
         this.fullName = fullName;
         this.specializations = specializations;
@@ -33,7 +33,7 @@ public class DoctorData {
         return fullName;
     }
 
-    public HashSet<Specialization> getSpecializations() {
+    public Set<Specialization> getSpecializations() {
         return specializations;
     }
 

@@ -42,4 +42,13 @@ public class Age {
     public int hashCode() {
         return dob.hashCode();
     }
+
+    //CREATED FOR JPA TO WORK PROPERLY
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 }

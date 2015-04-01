@@ -3,7 +3,6 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
 
 /**
  * @author Jasurbek Khajiev
@@ -37,5 +36,10 @@ public class Specialization {
     @Override
     public int hashCode() {
         return specializationName.hashCode();
+    }
+
+
+    public void setSpecializationName(String specializationName) {
+        this.specializationName = specializationName;
     }
 }

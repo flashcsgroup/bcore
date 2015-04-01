@@ -6,6 +6,7 @@ import uz.sunet.bcore.pharma.sharedkernel.Address.Address;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Jasurbek Khajiev
@@ -13,14 +14,14 @@ import java.util.List;
 @DomainFactory
 public class DoctorFactory {
 
-    public Doctor create(String name,String lastName,String middleName, Date dob,List<Specialization> specializations, Contacts contacts, String position, String departmentName,Category category, Loyalty loyalty,String nameOfPlace, Address address, Contacts workPlaceContacts){
+    public Doctor create(String name,String lastName,String middleName, Date dob,List<Specialization> specializations, Contacts contacts, String position, String departmentName,Category category, Loyalty loyalty,String nameOfPlace, Address address, String workPlacePhone, String workPlaceFax){
         Doctor doctor = new Doctor();
         doctor.setFullName(createFullName(name,lastName,middleName));
         doctor.setAge(new Age(dob));
-        HashSet<Specialization> specializationsSet = new HashSet<>();
+        Set<Specialization> specializationsSet = new HashSet<>();
         specializationsSet.addAll(specializations);
         doctor.setSpecializations(specializationsSet);
-        doctor.setWorkPlace(createWorkPlace(nameOfPlace,address,workPlaceContacts));
+        doctor.setWorkPlace(createWorkPlace(nameOfPlace,address,workPlacePhone, workPlaceFax));
         doctor.setPosition(createPosition(position,departmentName));
         doctor.setContacts(contacts);
         doctor.setCategory(category);
@@ -41,8 +42,8 @@ public class DoctorFactory {
         return new Position(positionName,departmentName);
     }
 
-    private WorkPlace createWorkPlace(String nameOfPlace,Address address,Contacts contacts){
-        return new WorkPlace(nameOfPlace,address,contacts);
+    private WorkPlace createWorkPlace(String nameOfPlace,Address address,String phoneNumber, String fax){
+        return new WorkPlace(nameOfPlace,address,phoneNumber,fax);
     }
 
 }

@@ -3,24 +3,29 @@ package uz.sunet.bcore.pharma.marketing.domain.doctor;
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 import uz.sunet.bcore.pharma.sharedkernel.Address.Address;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
 /**
  * @author Jasurbek Khajiev
  */
+@Embeddable
 @ValueObject
 public class WorkPlace {
-
     private String nameOfPlace;
     @Embedded
     private Address address;
-    @Embedded
-    private Contacts contacts;
+    private String phoneNumber;
 
-    public WorkPlace(String nameOfPlace, Address address, Contacts contacts) {
+    private String email;
+
+    private String fax;
+
+    public WorkPlace(String nameOfPlace, Address address, String phoneNumber, String fax) {
         this.nameOfPlace = nameOfPlace;
         this.address = address;
-        this.contacts = contacts;
+        this.phoneNumber = phoneNumber;
+        this.fax = fax;
     }
 
     public String getNameOfPlace() {
@@ -31,8 +36,12 @@ public class WorkPlace {
         return address;
     }
 
-    public Contacts getContacts() {
-        return contacts;
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getFax() {
+        return fax;
     }
 
     @Override
@@ -54,4 +63,23 @@ public class WorkPlace {
         result = 31 * result + address.hashCode();
         return result;
     }
+
+    //CREATED FOR JPA TO WORK PROPERLY
+
+    public void setNameOfPlace(String nameOfPlace) {
+        this.nameOfPlace = nameOfPlace;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
+
 }

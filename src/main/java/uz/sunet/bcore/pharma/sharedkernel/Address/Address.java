@@ -2,11 +2,13 @@ package uz.sunet.bcore.pharma.sharedkernel.Address;
 
 import uz.sunet.bcore.ddd.annotations.domain.ValueObject;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 
 /**
  * @author Jasurbek Khajiev
  */
+@Embeddable
 @ValueObject
 public class Address {
     @Embedded
