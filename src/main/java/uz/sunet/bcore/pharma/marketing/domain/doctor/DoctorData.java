@@ -37,4 +37,11 @@ public class DoctorData {
         return specializations;
     }
 
+    public Loyalty getLoyalty() {
+        return loyalty;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
 }
